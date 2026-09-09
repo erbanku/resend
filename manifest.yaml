@@ -8,6 +8,9 @@ description:
   en_US: "Send HTML emails with file attachments through Resend using your API key."
 icon: "icon.svg"
 icon_dark: "icon-dark.svg"
+privacy: PRIVACY.md
+repo: https://github.com/erbanku/resend
+contact: 79493862+erbanku@users.noreply.github.com
 resource:
   memory: 268435456
   permission:
