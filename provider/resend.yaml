@@ -1,0 +1,26 @@
+identity:
+  author: "erbanku"
+  name: "resend"
+  label:
+    en_US: "Resend"
+  description:
+    en_US: "Send HTML emails with file attachments through Resend using your API key."
+  icon: "icon.svg"
+  icon_dark: "icon-dark.svg"
+  tags:
+    - "utilities"
+tools:
+  - "tools/send_email.yaml"
+extra:
+  python:
+    source: "provider/resend.py"
+credentials_for_provider:
+  api_key:
+    type: "secret-input"
+    required: true
+    label:
+      en_US: "Resend API Key"
+    placeholder:
+      en_US: "re_..."
+    help:
+      en_US: "Enter a Resend sending-access or full-access API key. Key format is checked here; authorization is verified when sending."

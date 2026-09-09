@@ -1,0 +1,102 @@
+identity:
+  author: "erbanku"
+  name: "send_email"
+  label:
+    en_US: "Send Email"
+description:
+  human:
+    en_US: "send_email"
+  llm: "Send an email through Resend. Requires a verified sender, recipients, subject, and HTML or text. Supports file attachments, CC, BCC, reply-to and idempotency keys."
+parameters:
+  - name: "from"
+    type: "string"
+    required: true
+    label:
+      en_US: "From"
+    form: "llm"
+    human_description:
+      en_US: "Verified sender, optionally Name <email@example.com>."
+    llm_description: "Sender on your verified Resend domain."
+  - name: "to"
+    type: "string"
+    required: true
+    label:
+      en_US: "To"
+    form: "llm"
+    human_description:
+      en_US: "Comma, semicolon or newline-separated recipient addresses."
+    llm_description: "Recipient addresses, separated by commas, semicolons or newlines."
+  - name: "subject"
+    type: "string"
+    required: true
+    label:
+      en_US: "Subject"
+    form: "llm"
+    human_description:
+      en_US: "Email subject."
+    llm_description: "Email subject."
+  - name: "html"
+    type: "string"
+    required: false
+    label:
+      en_US: "HTML Body"
+    form: "llm"
+    human_description:
+      en_US: "HTML email content. Provide HTML or plain text."
+    llm_description: "HTML email body, preserved without escaping."
+  - name: "text"
+    type: "string"
+    required: false
+    label:
+      en_US: "Plain Text Body"
+    form: "llm"
+    human_description:
+      en_US: "Optional text fallback, or text-only body."
+    llm_description: "Plain text fallback or text-only email body."
+  - name: "attachments"
+    type: "files"
+    required: false
+    label:
+      en_US: "Attachments"
+    form: "form"
+    human_description:
+      en_US: "Select Dify file variables from uploads or previous nodes."
+  - name: "cc"
+    type: "string"
+    required: false
+    label:
+      en_US: "CC"
+    form: "llm"
+    human_description:
+      en_US: "Optional recipient addresses."
+    llm_description: "Optional CC addresses."
+  - name: "bcc"
+    type: "string"
+    required: false
+    label:
+      en_US: "BCC"
+    form: "llm"
+    human_description:
+      en_US: "Optional hidden recipient addresses."
+    llm_description: "Optional BCC addresses."
+  - name: "reply_to"
+    type: "string"
+    required: false
+    label:
+      en_US: "Reply To"
+    form: "llm"
+    human_description:
+      en_US: "Optional reply-to addresses."
+    llm_description: "Optional reply-to addresses."
+  - name: "idempotency_key"
+    type: "string"
+    required: false
+    label:
+      en_US: "Idempotency Key"
+    form: "llm"
+    human_description:
+      en_US: "Reuse a stable unique key for retries of the same email (up to 256 ASCII characters)."
+    llm_description: "Stable unique key per logical email. Reuse only when retrying the identical payload."
+extra:
+  python:
+    source: "tools/send_email.py"
